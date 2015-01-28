@@ -75,6 +75,6 @@ public abstract class AbstractPersistence<T extends AbstractEntity, PK extends N
 	 * Exige a definição do <code>EntityManager</code> responsável pelas
 	 * operações de persistência.
 	 */
-	@PersistenceContext(unitName="personalBiblio")
+	@PersistenceContext(unitName = "personalBiblio")
 	protected abstract EntityManager getEntityManager();
 }
