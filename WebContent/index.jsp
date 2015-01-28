@@ -5,6 +5,6 @@
 <title>PersonalBiblio</title>
 </head>
 <body>
-<% response.sendRedirect("listaLivros.jsf"); %>
+<% response.sendRedirect("livros/index.jsf"); %>
 </body>
 </html>
