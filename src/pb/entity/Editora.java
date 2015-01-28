@@ -1,24 +1,31 @@
 package pb.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Editora implements AbstractEntity {
-	private int id;
-	private String nome;
 	private static final long serialVersionUID = 5326833736706249574L;
+	private Number id;
+	private String nome;
+	private List<Livro> livros;
 
 	public Editora() {
 		super();
+		this.livros = new ArrayList<Livro>();
 	}
 
 	public Editora(int id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.livros = new ArrayList<Livro>();
 	}
 
 	@Id
@@ -28,7 +35,7 @@ public class Editora implements AbstractEntity {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Number id) {
 		this.id = id;
 	}
 
@@ -38,5 +45,14 @@ public class Editora implements AbstractEntity {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	@OneToMany(mappedBy="editora")
+	public List<Livro> getLivros() {
+		return livros;
+	}
+
+	public void setLivros(List<Livro> livros) {
+		this.livros = livros;
 	}
 }
