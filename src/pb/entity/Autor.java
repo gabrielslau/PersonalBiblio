@@ -3,6 +3,7 @@ package pb.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,7 +48,7 @@ public class Autor implements AbstractEntity {
 		this.nome = nome;
 	}
 
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.ALL)
 	public Set<Livro> getLivros() {
 		return livros;
 	}
