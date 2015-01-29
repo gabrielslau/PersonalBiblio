@@ -14,25 +14,38 @@
 				<a class="pull-right small btn btn-default" href="#{root}livros/add.jsf">#{msg['livros.add']}</a>
 			</h1>
 			
-			<h:dataTable border="1" value="#{livroMB.livros}" var="u"
+			<h:dataTable border="1" value="#{livroMB.livros}" var="l"
 				styleClass="table table-bordered" rendered="#{livroMB.notVazio}">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="#{msg['livros.form.fields.titulo']}"></h:outputText>
 					</f:facet>
-					<h:outputText value="#{u.titulo}"></h:outputText>
+					<h:outputText value="#{l.titulo}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="#{msg['livros.form.fields.isbn']}"></h:outputText>
 					</f:facet>
-					<h:outputText value="#{u.isbn}"></h:outputText>
+					<h:outputText value="#{l.isbn}"></h:outputText>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="#{msg['livros.form.fields.anoPub']}"></h:outputText>
 					</f:facet>
-					<h:outputText value="#{u.anoPub}"></h:outputText>
+					<h:outputText value="#{l.anoPub}"></h:outputText>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['livros.form.fields.usuario']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{l.usuario.nome}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['livros.form.fields.editora']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{l.editora.nome}"></h:outputText>
 				</h:column>
 				
 			</h:dataTable>
