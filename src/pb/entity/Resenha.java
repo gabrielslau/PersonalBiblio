@@ -29,7 +29,7 @@ public class Resenha implements AbstractEntity {
 
 	@Id
 	@Override
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Number getId() {
 		return id;
 	}
