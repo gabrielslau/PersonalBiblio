@@ -23,27 +23,6 @@
 					</f:facet>
 					<h:outputText value="#{a.nome}"></h:outputText>
 				</h:column>
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<center>
-						<h:form>
-							<h:commandButton value="#{msg['form.btn.delete']}"
-								action="#{autorMB.delete}" styleClass="btn btn-primary">
-								<f:setPropertyActionListener target="#{autorMB.autor.id}"
-									value="#{a.id}"></f:setPropertyActionListener>
-							</h:commandButton>
-						</h:form>
-					</center>
-				</h:column>
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<center>
-						<h:form>
-							<h:commandLink value="#{msg['form.btn.edit']}"
-								action="#{autorMB.edit(autor)}" styleClass="btn btn-primary" />
-						</h:form>
-					</center>
-				</h:column>
 			</h:dataTable>
 
 			<ui:include src="/elements/autores_empty.xhtml" />

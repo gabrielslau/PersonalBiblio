@@ -35,27 +35,6 @@
 					</f:facet>
 					<h:outputText value="#{u.login}"></h:outputText>
 				</h:column>
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<center>
-						<h:form>
-							<h:commandButton value="#{msg['form.btn.delete']}"
-								action="#{usuarioMB.delete}" styleClass="btn btn-primary">
-								<f:setPropertyActionListener target="#{usuarioMB.usuario.id}"
-									value="#{u.id}"></f:setPropertyActionListener>
-							</h:commandButton>
-						</h:form>
-					</center>
-				</h:column>
-				<h:column>
-					<f:facet name="header"></f:facet>
-					<center>
-						<h:form>
-							<h:commandLink value="#{msg['form.btn.edit']}"
-								action="#{usuarioMB.edit(usuario)}" styleClass="btn btn-primary" />
-						</h:form>
-					</center>
-				</h:column>
 			</h:dataTable>
 
 			<ui:include src="/elements/usuarios_empty.xhtml" />
