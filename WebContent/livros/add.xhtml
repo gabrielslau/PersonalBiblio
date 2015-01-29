@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="../layout/default.xhtml">
+		<ui:define name="content">
+			<h1>
+				<h:outputText value="#{msg['livros.add']}" />
+			</h1>
+
+			<f:view>
+				<h:outputText value="#{sessaoMB.mensagem}"
+					rendered="#{sessaoMB.temMensagem}" styleClass="text-danger"></h:outputText>
+
+				<h:form>
+					<h:panelGrid columns="2" border="1"
+						styleClass="table table-bordered">
+						<h:outputLabel value="#{msg['livros.form.fields.titulo']}: "></h:outputLabel>
+						<h:inputText value="#{livroMB.livro.titulo}"
+							styleClass="form-control" required="true"></h:inputText>
+						<h:outputLabel value="#{msg['livros.form.fields.anoPub']}: "></h:outputLabel>
+						<h:inputText value="#{livroMB.livro.anoPub}"
+							styleClass="form-control" required="true"></h:inputText>
+						<h:outputLabel value="#{msg['livros.form.fields.isbn']}: "></h:outputLabel>
+						<h:inputText value="#{livroMB.livro.isbn}"
+							styleClass="form-control" required="true"></h:inputText>
+
+						<!-- <h:outputLabel value="#{msg['livros.form.fields.editora']}: "></h:outputLabel>
+						<h:selectOneMenu value="#{editoraMB.editora}"
+							styleClass="form-control" required="true">
+							<f:selectItems value="#{editoraMB.editoras}" var="editora" itemValue="#{editora}" itemLabel="#{editora.nome}" />
+						</h:selectOneMenu> -->
+
+						<!-- <h:outputLabel value="#{msg['livros.form.fields.autores']}: "></h:outputLabel>
+						<h:selectManyCheckbox value="#{autorMB.autor}" layout="pageDirection">
+							<f:selectItems value="#{autorMB.autores}" var="autor"
+								itemValue="#{autor}" itemLabel="#{autor.nome}" />
+						</h:selectManyCheckbox> -->
+
+<!-- 						<h:outputLabel value="#{msg['livros.form.fields.usuario']}: "></h:outputLabel>
+						<h:selectOneMenu value="#{livroMB.livro.usuario}" styleClass="form-control">
+							<f:selectItems value="#{usuarioMB.usuarios}" var="usuario" itemValue="#{usuario}" itemLabel="#{usuario.nome}" />
+						</h:selectOneMenu>				
+
+						 -->
+
+					</h:panelGrid>
+					<h:commandButton value="#{msg['form.btn.add']}"
+						action="#{livroMB.addPost}" styleClass="btn btn-primary"
+						type="submit"></h:commandButton>
+				</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -13,6 +13,31 @@
 				<h:outputText value="#{msg['livros.index']}" />
 				<a class="pull-right small btn btn-default" href="#{root}livros/add.jsf">#{msg['livros.add']}</a>
 			</h1>
+			
+			<h:dataTable border="1" value="#{livroMB.livros}" var="u"
+				styleClass="table table-bordered" rendered="#{livroMB.notVazio}">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['livros.form.fields.titulo']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{u.titulo}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['livros.form.fields.isbn']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{u.isbn}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['livros.form.fields.anoPub']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{u.anoPub}"></h:outputText>
+				</h:column>
+				
+			</h:dataTable>
+
+			<ui:include src="/elements/livros_empty.xhtml" />
 		</ui:define>
 	</ui:composition>
 </h:body>

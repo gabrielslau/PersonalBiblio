@@ -2,7 +2,9 @@ package pb.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,6 @@ public class Livro implements AbstractEntity {
 	private List<Resenha> resenhas;
 	private List<Emprestimo> emprestimos;
 	private Usuario usuario;
-
 
 	public Livro() {
 		super();
@@ -70,7 +71,7 @@ public class Livro implements AbstractEntity {
 		this.isbn = isbn;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	public Editora getEditora() {
 		return editora;
 	}
@@ -79,7 +80,7 @@ public class Livro implements AbstractEntity {
 		this.editora = editora;
 	}
 
-	@ManyToMany(mappedBy="livros")
+	@ManyToMany(mappedBy="livros", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	public List<Autor> getAutores() {
 		return autores;
 	}
@@ -106,7 +107,7 @@ public class Livro implements AbstractEntity {
 		this.emprestimos = emprestimos;
 	}
 
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	public Usuario getUsuario() {
 		return usuario;
 	}
