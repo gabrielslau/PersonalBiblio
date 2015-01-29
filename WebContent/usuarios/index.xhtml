@@ -11,8 +11,55 @@
 		<ui:define name="content">
 			<h1>
 				<h:outputText value="#{msg['usuarios.index']}" />
-				<a class="pull-right small btn btn-default" href="#{root}usuarios/add.jsf">#{msg['usuarios.add']}</a>
+				<a class="pull-right small btn btn-default"
+					href="#{root}usuarios/add.jsf">#{msg['usuarios.add']}</a>
 			</h1>
+
+			<h:dataTable border="1" value="#{usuarioMB.usuarios}" var="u"
+				styleClass="table table-bordered" rendered="#{usuarioMB.notVazio}">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['usuarios.form.fields.name']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{u.nome}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['usuarios.form.fields.email']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{u.email}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg['usuarios.form.fields.login']}"></h:outputText>
+					</f:facet>
+					<h:outputText value="#{u.login}"></h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<center>
+						<h:form>
+							<h:commandButton value="#{msg['form.btn.delete']}"
+								action="#{usuarioMB.delete}" styleClass="btn btn-primary">
+								<f:setPropertyActionListener target="#{usuarioMB.usuario.id}"
+									value="#{u.id}"></f:setPropertyActionListener>
+							</h:commandButton>
+						</h:form>
+					</center>
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<center>
+						<h:form>
+							<h:commandLink value="#{msg['form.btn.edit']}"
+								action="#{usuarioMB.edit(usuario)}" styleClass="btn btn-primary" />
+						</h:form>
+					</center>
+				</h:column>
+			</h:dataTable>
+
+			<ui:include src="/elements/usuarios_empty.xhtml" />
+
 		</ui:define>
 	</ui:composition>
 </h:body>

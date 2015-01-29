@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="../layout/default.xhtml">
+		<ui:define name="content">
+			<h1>
+				<h:outputText value="#{msg['usuarios.add']}" />
+			</h1>
+
+			<f:view>
+				<h:outputText value="#{sessaoMB.mensagem}"
+					rendered="#{sessaoMB.temMensagem}" styleClass="text-danger"></h:outputText>
+
+				<h:form action="#{usuarioMB.addPost}">
+					<h:panelGrid columns="2" border="1"
+						styleClass="table table-bordered">
+						<h:outputLabel value="#{msg['usuarios.form.fields.name']}: "></h:outputLabel>
+						<h:inputText value="#{usuarioMB.usuario.nome}"
+							styleClass="form-control" required="true"></h:inputText>
+						<h:outputLabel value="#{msg['usuarios.form.fields.email']}: "></h:outputLabel>
+						<h:inputText value="#{usuarioMB.usuario.email}"
+							styleClass="form-control" required="true"></h:inputText>
+						<h:outputLabel value="#{msg['usuarios.form.fields.login']}: "></h:outputLabel>
+						<h:inputText value="#{usuarioMB.usuario.login}"
+							styleClass="form-control" required="true"></h:inputText>
+						<h:outputLabel value="#{msg['usuarios.form.fields.senha']}: "></h:outputLabel>
+						<h:inputText value="#{usuarioMB.usuario.senha}"
+							styleClass="form-control" required="true"></h:inputText>
+					</h:panelGrid>
+					<h:commandButton value="#{msg['form.btn.add']}"
+						action="#{usuarioMB.addPost}" styleClass="btn btn-primary"></h:commandButton>
+				</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
