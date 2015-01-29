@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Livro implements AbstractEntity {
 	private static final long serialVersionUID = 5326833736706249574L;
-	Number id;
+	private Integer id;
 	private int anoPub;
 	private String titulo, isbn;
 	private Editora editora;
@@ -38,11 +38,11 @@ public class Livro implements AbstractEntity {
 	@Id
 	@Override
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Number getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Number id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 @Entity
 public class Emprestimo implements AbstractEntity {
 	private static final long serialVersionUID = 5326833736706249574L;
-	private Number id;
+	private Integer id;
 	private Calendar data, dataDevolucao;
 	private Usuario usuario;
 	private Resenha resenha;
@@ -34,11 +34,11 @@ public class Emprestimo implements AbstractEntity {
 	@Id
 	@Override
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Number getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Number id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

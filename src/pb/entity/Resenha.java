@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Resenha implements AbstractEntity {
 	private static final long serialVersionUID = 5326833736706249574L;
-	Number id;
+	private Integer id;
 	private int nota;
 	private String texto;
 	private Livro livro;
@@ -30,11 +30,11 @@ public class Resenha implements AbstractEntity {
 	@Id
 	@Override
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Number getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Number id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

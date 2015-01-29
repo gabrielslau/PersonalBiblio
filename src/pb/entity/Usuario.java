@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Usuario implements AbstractEntity {
 	private static final long serialVersionUID = 5326833736706249574L;
-	private Number id;
+	private Integer id;
 	private String nome, email, login, senha;
 	private List<Livro> livros;
 	private List<Emprestimo> emprestimos;
@@ -36,10 +36,10 @@ public class Usuario implements AbstractEntity {
 	@Id
 	@Override
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Number getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Number id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {

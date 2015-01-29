@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Autor implements AbstractEntity {
 	private static final long serialVersionUID = 5326833736706249574L;
-	private Number id;
+	private Integer id;
 	private String nome;
 	private Set<Livro> livros;
 
@@ -21,21 +21,21 @@ public class Autor implements AbstractEntity {
 		this.livros = new HashSet<Livro>();
 	}
 
-	public Autor(int id, String nome) {
+	public Autor(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.livros = new HashSet<Livro>();
 	}
 
-	@Id
 	@Override
+	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Number getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Number id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

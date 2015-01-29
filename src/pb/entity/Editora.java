@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Editora implements AbstractEntity {
 	private static final long serialVersionUID = 5326833736706249574L;
-	private Number id;
+	private Integer id;
 	private String nome;
 	private List<Livro> livros;
 
@@ -21,7 +21,7 @@ public class Editora implements AbstractEntity {
 		this.livros = new ArrayList<Livro>();
 	}
 
-	public Editora(int id, String nome) {
+	public Editora(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -31,11 +31,11 @@ public class Editora implements AbstractEntity {
 	@Id
 	@Override
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Number getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Number id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
