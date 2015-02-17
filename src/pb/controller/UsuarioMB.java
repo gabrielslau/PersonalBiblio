@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import pb.entity.Livro;
 import pb.entity.Usuario;
 import pb.service.UsuarioService;
 
@@ -18,10 +19,12 @@ public class UsuarioMB extends AppMB {
 	private UsuarioService service;
 	private Usuario usuario;
 	private List<Usuario> usuarios;
+	private List<Livro> livros; // livros de um usuário
 
 	public UsuarioMB(){
 		super();
 		this.usuario = new Usuario();
+		this.livros = new ArrayList<Livro>();
 		this.setUsuarios(new ArrayList<Usuario>());
 	}
 
@@ -61,5 +64,17 @@ public class UsuarioMB extends AppMB {
 	}
 	public boolean isNotVazio(){
 		return !this.isVazio();
+	}
+
+	public String meusLivros(Usuario u){
+		if(livros.isEmpty()){
+			this.livros = service.findAllByUser(u.getId());
+			System.out.println(livros);
+		}
+		return "usuarios/livros.xhtml";
+	}
+
+	public List<Livro> getLivros(){
+		return livros;
 	}
 }

@@ -22,4 +22,11 @@ public class LivroService extends AbstractPersistence<Livro, Long> {
 	public LivroService() {
 		super(Livro.class);
 	}
+
+	@Override
+	public Livro save(Livro e) {
+		// desabilita o comportamento padrão de persistir a entidade
+		// visto que causava a criação das entidades associadas (Usuario, Editora)
+		return getEntityManager().merge(e);
+	}
 }

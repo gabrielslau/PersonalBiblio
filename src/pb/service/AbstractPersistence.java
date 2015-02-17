@@ -29,9 +29,11 @@ public abstract class AbstractPersistence<T extends AbstractEntity, PK extends N
 	}
 
 	public T save(T e) {
-		if (e.getId() != null)
+		if (e.getId() != null){
+			System.out.println(" --- MERGE ---");
 			return getEntityManager().merge(e);
-		else {
+		}else {
+			System.out.println(" --- PERSIST ---");
 			getEntityManager().persist(e);
 			return e;
 		}

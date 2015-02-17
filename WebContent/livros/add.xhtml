@@ -29,25 +29,23 @@
 						<h:outputLabel value="#{msg['livros.form.fields.isbn']}: "></h:outputLabel>
 						<h:inputText value="#{livroMB.livro.isbn}"
 							styleClass="form-control" required="true"></h:inputText>
-
-						<!-- <h:outputLabel value="#{msg['livros.form.fields.editora']}: "></h:outputLabel>
-						<h:selectOneMenu value="#{editoraMB.editora}"
+							
+						<h:outputLabel value="#{msg['livros.form.fields.usuario']}: "></h:outputLabel>
+						<h:selectOneMenu value="#{livroMB.usuarioID}" styleClass="form-control">
+							<f:selectItems value="#{usuarioMB.usuarios}" var="usuario" itemValue="#{usuario.id}" itemLabel="#{usuario.nome}" />
+						</h:selectOneMenu>
+						
+						<h:outputLabel value="#{msg['livros.form.fields.editora']}: "></h:outputLabel>
+						<h:selectOneMenu value="#{livroMB.editoraID}"
 							styleClass="form-control" required="true">
-							<f:selectItems value="#{editoraMB.editoras}" var="editora" itemValue="#{editora}" itemLabel="#{editora.nome}" />
-						</h:selectOneMenu> -->
+							<f:selectItems value="#{editoraMB.editoras}" var="editora" itemValue="#{editora.id}" itemLabel="#{editora.nome}" />
+						</h:selectOneMenu>
 
 						<!-- <h:outputLabel value="#{msg['livros.form.fields.autores']}: "></h:outputLabel>
-						<h:selectManyCheckbox value="#{autorMB.autor}" layout="pageDirection">
+						<h:selectManyCheckbox value="#{livroMB.autores}" layout="pageDirection">
 							<f:selectItems value="#{autorMB.autores}" var="autor"
 								itemValue="#{autor}" itemLabel="#{autor.nome}" />
 						</h:selectManyCheckbox> -->
-
-<!-- 						<h:outputLabel value="#{msg['livros.form.fields.usuario']}: "></h:outputLabel>
-						<h:selectOneMenu value="#{livroMB.livro.usuario}" styleClass="form-control">
-							<f:selectItems value="#{usuarioMB.usuarios}" var="usuario" itemValue="#{usuario}" itemLabel="#{usuario.nome}" />
-						</h:selectOneMenu>				
-
-						 -->
 
 					</h:panelGrid>
 					<h:commandButton value="#{msg['form.btn.add']}"

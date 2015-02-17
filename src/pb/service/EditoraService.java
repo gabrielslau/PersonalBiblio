@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import pb.entity.Editora;
 
 @Stateless
-public class EditoraService extends AbstractPersistence<Editora, Long> {
+public class EditoraService extends AbstractPersistence<Editora, Integer> {
 
 	/**
 	 * O container injeta a referência para o EntityManager.
